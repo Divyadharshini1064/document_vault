@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+
+  app:
+    build: .
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: documentdb
